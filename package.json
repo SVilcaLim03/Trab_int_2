@@ -1,0 +1,22 @@
+{
+  "name": "trab_int_2",
+  "version": "1.0.0",
+  "description": "Tipeador de voz a texto AZURE cognitive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SVilcaLim03/Trab_int_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SVilcaLim03/Trab_int_2/issues"
+  },
+  "homepage": "https://github.com/SVilcaLim03/Trab_int_2#readme",
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.23.0"
+  }
+}
