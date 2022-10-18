@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <title>SDK Js</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Contact</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" type="text/css" href="css/responsive.css">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="/image/gif" />
+   </head>
+   <body>
+      <!-- header section start -->
+      <div class="header_section">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mr-auto">
+                  
+                  <li class="nav-item active">
+                     <a class="nav-link" href="contact.html">Transcript</a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+      <!-- header section end -->
+      <!-- contact section start -->
+      <div id="warning">
+         <h1 class="contact_taital"> Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+      </div>
+
+      <div class="contact_section layout_padding margin_90">
+         <div class="container">
+            <h1 class="contact_taital">Realiza una transcripción!</h1>
+            <div class="news_section_2" id="content">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="contact_box">
+                        <h1 class="book_text">Sube un audio de formato wav</h1>
+                        <input type="file" id="filePicker" accept=".wav" />
+                        <div class="send_bt"><button id="startRecognizeOnceAsyncButton">Iniciar reconocimiento</button></div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="contact_box">
+                        <h1 class="book_text">Salida de Texto</h1>
+                        <div class="news_section">
+                        <input id="subscriptionKey" type="hidden" size="40" value="e057fc4513e24fa5b954e8796591073d">
+                        <input id="serviceRegion" type="hidden" size="40" value="eastus">
+                        <textarea id="phraseDiv" style="display: inline-block;width:500px;height:200px"></textarea>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 col-sm-6">
+                  <div class="footer_logo"><a href="index.html"><img src="images/footer-logo.png"></a></div>
+                  <h1 class="adderss_text">Contáctanos</h1>
+                  <div class="map_icon"><img src="images/map-icon.png"><span class="paddlin_left_0">Escuela de Ciencia de la Computación</span></div>
+                  <div class="map_icon"><img src="images/call-icon.png"><span class="paddlin_left_0">+51 998 777 542</span></div>
+                  <div class="map_icon"><img src="images/mail-icon.png"><span class="paddlin_left_0">equipo_2@unsa.edu.pe</span></div>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2019 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+      <script >
+            var phraseDiv;
+         var startRecognizeOnceAsyncButton;
+         var filePicker, audioFile;
+
+         var subscriptionKey, serviceRegion;
+         var SpeechSDK;
+         var recognizer;
+
+         document.addEventListener("DOMContentLoaded", function () {
+            startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+            subscriptionKey = document.getElementById("subscriptionKey");
+            serviceRegion = document.getElementById("serviceRegion");
+            phraseDiv = document.getElementById("phraseDiv");
+            filePicker = document.getElementById("filePicker");
+            filePicker.addEventListener("change", function () {
+               audioFile = filePicker.files[0];
+               startRecognizeOnceAsyncButton.disabled = false;
+            });
+
+            startRecognizeOnceAsyncButton.addEventListener("click", function () {
+            startRecognizeOnceAsyncButton.disabled = true;
+            phraseDiv.innerHTML = "";
+
+            if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
+               alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+               return;
+            }
+            var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
+
+            speechConfig.speechRecognitionLanguage = "es-MX";
+            var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
+            recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+
+            recognizer.recognizeOnceAsync(
+               function (result) {
+                  startRecognizeOnceAsyncButton.disabled = false;
+                  phraseDiv.innerHTML += result.text;
+                  window.console.log(result);
+
+                  recognizer.close();
+                  recognizer = undefined;
+               },
+               function (err) {
+                  startRecognizeOnceAsyncButton.disabled = false;
+                  phraseDiv.innerHTML += err;
+                  window.console.log(err);
+
+                  recognizer.close();
+                  recognizer = undefined;
+               });
+            });
+
+         if (!!window.SpeechSDK) {
+         SpeechSDK = window.SpeechSDK;
+         startRecognizeOnceAsyncButton.disabled = false;
+
+         document.getElementById('content').style.display = 'block';
+         document.getElementById('warning').style.display = 'none';
+         }
+    });
+      </script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   </body>
+</html>

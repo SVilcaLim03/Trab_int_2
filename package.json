@@ -1,8 +1,8 @@
 {
   "name": "trab_int_2",
   "version": "1.0.0",
-  "description": "Tipeador de voz a texto AZURE cognitive",
-  "main": "index.js",
+  "description": "Tipeador de Grabaciones de Clases",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SVilcaLim03/Trab_int_2#readme",
   "dependencies": {
-    "microsoft-cognitiveservices-speech-sdk": "^1.23.0"
+    "express": "^4.18.2",
+    "microsoft-cognitiveservices-speech-sdk": "^1.24.0"
   }
 }
