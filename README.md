@@ -10,14 +10,14 @@
   <p align="center">
     Aplicación Web enfocada en ayudar a personas con pérdida auditiva
     <br />
-    <a href="https://docs.google.com/document/d/1s1gV0AmxZG5u029aQwCnikhdyj4lpGjF/edit"><strong>Documentación »</strong></a>
+    <a href="https://docs.google.com/document/d/1m4W3b8yIuL4pHp7kyVUDZUa48ARBHU4n/edit?usp=sharing&ouid=111631932760595681072&rtpof=true&sd=true"><strong>Documentación »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/eluqm/IS-3group5">View Demo</a>
+    <a href="https://github.com/SVilcaLim03/Trab_int_2">View Demo</a>
     ·
-    <a href="https://github.com/eluqm/IS-3group5">Report Bug</a>
+    <a href="https://github.com/SVilcaLim03/Trab_int_2">Report Bug</a>
     ·
-    <a href="https://github.com/eluqm/IS-3group5">Request Feature</a>
+    <a href="https://github.com/SVilcaLim03/Trab_int_2">Request Feature</a>
   </p>
 </div>
 
