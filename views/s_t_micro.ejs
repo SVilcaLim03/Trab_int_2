@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <title>SDK Js</title>
+   <%- include ("partials/lib.ejs") %>
+
+</head>
+
+<body>
+   <!-- header section start -->
+
+   <%- include ("partials/header.ejs")%>
+      </div>
+      <!-- header section end -->
+      <!-- contact section start -->
+      <div id="warning">
+         <h1 class="contact_taital"> Speech Recognition Speech SDK not found
+            (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+      </div>
+      <div class="contact_section layout_padding margin_90">
+         <div class="container">
+            <h1 class="contact_taital">Realiza una transcripción!</h1>
+            <div class="news_section_2" id="content">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="contact_box">
+                        <h1 class="book_text">Presione el boton y pase a hablar</h1>
+                        <br><br>
+                        <div class="send_bt"><button id="startRecognizeOnceAsyncButton">Iniciar reconocimiento</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="contact_box">
+                        <h1 class="book_text">Salida de Texto</h1>
+                        <div class="news_section">
+                           <input id="subscriptionKey" type="hidden" size="40" value="e057fc4513e24fa5b954e8796591073d">
+                           <input id="serviceRegion" type="hidden" size="40" value="eastus">
+                           <textarea id="phraseDiv" cols="100" rows="6" style="max-width:100%;"></textarea>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <%- include ("partials/footer.ejs")%>
+         <!-- footer section end -->
+         <!-- Javascript files-->
+         <%- include ("partials/js_files.ejs") %>
+            <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+            <script src="js/s_t_micro.js"></script>
+</body>
+
+</html>
