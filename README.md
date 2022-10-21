@@ -74,11 +74,47 @@ Creamos 4 listas: To do, In progress, Done y To maintenance
 
 [![trello.png](https://i.postimg.cc/xjvYMm5z/trello.png)](https://postimg.cc/Z051hC1b)
 
-### :gear: Instalación
+## :gear: Instalación
+
+### :gear: Pre-Requisitos
+
+1. Nodejs
+
+### :gear: Instalacion
 
 1. Clonar repositorio
    ```sh
    git clone https://github.com/SVilcaLim03/Trab_int_2
+   ```
+
+2. Dirijase a la carpeta donde clono el repositorio e instale todas las dependencias con
+   ```sh
+   npm install
+   ```
+
+4. Cree una carpeta en la direccion
+   ```sh
+   Trab_int_2/views
+   ```
+
+   Con el nombre keys, dentro de la carpeta cree un archivo keys.ejs le debera quedar de la siguiente forma
+   ```sh
+   Trab_int_2
+    views
+      keys
+        keys.ejs
+   ```
+
+5. Pase a pegar el siguiente codigo dentro del archivo keys.ejs recientemente creado
+   ```sh
+   <input id="subscriptionKey" type="hidden" size="40" value="Aqui pegue su clave de subscripcion Azure">
+   <input id="serviceRegion" type="hidden" size="40" value="Aqui pegue su region de servicio">
+   ```
+   Tras hacer esto cambie el campo value con sus propias claves de registro, y su region de servicio
+
+6. Pase a levantar el servidor usando
+   ```sh
+   node app.js
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
