@@ -117,6 +117,11 @@ Creamos 4 listas: To do, In progress, Done y To maintenance
    node app.js
    ```
 
+7. Pase a su navegador de preferencia e ingrese en la siguiente direccion
+   ```sh
+   localhost:3000
+   ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## :dart: Descripción general
